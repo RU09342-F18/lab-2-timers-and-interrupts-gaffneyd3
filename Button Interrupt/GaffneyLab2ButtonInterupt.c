@@ -7,16 +7,16 @@
 int main(void)
 {
 	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
-	P1SEL &= ~0x09; //selects GPIO
-	P1SEL2 &= ~0x09; //selects GPIO
+	P1SEL &= ~0x09; //selects GPIO and LED
+	P1SEL2 &= ~0x09; //selects GPIO and LED
 
 	P1DIR |= BIT0; //sets direction of p1.0 to output
 	P1DIR &= ~BIT3; //sets direction of P1.3 to input
 	P1REN |= BIT3; //enables the pull up-down resistor
 	P1OUT |= BIT3; //sets the pull down resistor
 
-	P1IE |= BIT3; //enables the interupt for bit 3
-	P1IES |= BIT3; //enables rising edge
+	P1IE |= BIT3; //enables the interupt for p1.3
+	P1IES |= BIT3; //enables rising edge for p1.3
 	P1IFG &= ~BIT3; //clears the flag
 
 	// Enter LPM0 and enable global interrupts

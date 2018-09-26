@@ -21,7 +21,6 @@ int main(void)
 	TA1CCR0 = 0x2000;
 	TA1CCTL0 |= CCIE; //ENABLES INTERUPT
 	_BIS_SR(LPM0_bits + GIE); //lower power mode and enable global interupts
-	while(1);
 }
 #pragma vector=TIMER0_A0_VECTOR
 __interrupt void TIMER0_A0(void) {

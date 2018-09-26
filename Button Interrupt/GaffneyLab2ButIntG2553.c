@@ -16,7 +16,7 @@ int main(void)
 	P1OUT |= BIT3; //sets the pull down resistor
 
 	P1IE |= BIT3; //enables the interupt for p1.3
-	P1IES |= BIT3; //enables rising edge for p1.3
+	P1IES &= ~BIT3; //enables rising edge for p1.3
 	P1IFG &= ~BIT3; //clears the flag
 
 	// Enter LPM0 and enable global interrupts

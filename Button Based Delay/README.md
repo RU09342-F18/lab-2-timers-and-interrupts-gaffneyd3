@@ -1,12 +1,1 @@
-# Button Based Delay
-Now that you have begun to familiarize yourself with the TIMER modules, why don't we make an interesting change to our code from the last lab.
-
-## Task
-Setup your microcontroller to initially blink and LED at a rate of 10Hz upon restarting or powering up. Then utilizing one of the buttons on board, a user should be able to set the delay or blinking rate of the LED by holding down a button. The duration in which the button is depressed should then become the new rate at which the LED blinks. As previously stated, you most likely will want to take advantage of the fact that TIMER modules exist and see if you can let them do a bulk of the work for you.
-
-### Extra Work
-## Reset Button
-What is a piece of electronics without a reset button? Instead of relying on resetting your processor using the built in reset circuitry, why not instead use another button to reset the rate back to 10Hz.
-
-## Button Based Hertz
-Most likely using two buttons, what if instead of making a delay loop based on the time, the user could instead enter a mode where the number of times they pressed the button would become the number in Hz of the blinking rate? How do you think you would implement that with just one button?
+The way this program worked, it used a combination of a button interupt and a timer interupt. First it set the inputs and outputs correctly to set up the button as an input and the led as an output. then it set up a timer and enabled all the interupts and cleared all of the flags. Upon initiating the program, it sets the clock to A clk, sets it to up mode and uses 8 divider. Then it sets the button to trigger on the rising edge. Then when the button is pressed, it detects if on the falling edge of the button, and resets the clock to stop counting upon release of the button. It does this by clearing the timer, and counting in continuous mode. Then it sets the second led to be on to signal if it is counting. Then when the button is released, it stops counting, resets the clock and sets it to up mode, and to count up to the time that was saved in the TA0 register. Then it clears the flags and goes back to toggling the LED.

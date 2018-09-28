@@ -10,7 +10,6 @@ int main(void)
 	BCSCTL3 = LFXT1S_2; //tells MC to use internal crystal
 	
 	P1DIR |= BIT0; //sets direction of p1.0 to output
-	P1OUT |= BIT3; //sets p1out to be button
 	P1DIR &= ~BIT3; //sets direction of P1.3 to input
 
 	P1DIR |= BIT6;// sets as output to gpio and turns it off
@@ -23,7 +22,7 @@ int main(void)
 
     TA0CTL=TASSEL_1 + MC_1 + ID_3; //sets clock to: A clk sets mc to: up mode sets ID to: 8 divider
     CCTL0 = CCIE; //enables interupt
-    CCR0 = 200; //sets register to 250
+    CCR0 = 200; //sets register to 200
     P1IE |= BIT3; //enables button interupt
     P1IES |=BIT3; //sets to rising edge
     P1IFG &=~BIT3; //clears interupt flag

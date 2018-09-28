@@ -32,7 +32,7 @@ int main(void)
 #pragma vector = PORT1_VECTOR;
 __interrupt void Port_1(void)
 { //BUTTON CLICK
-    if(P1IES & BIT3){//if falling edge is detected of button
+    if(P1IES & BIT3){//if rising edge of button is detected
         P1IES &= ~BIT3;//sets to falling edge
         TACTL = TACLR;//clears the timer
         TA0CTL=TASSEL_1 + MC_2 + ID_3; //sets clock to: A clk sets mc to: continuous mode sets ID to: 8 divider
